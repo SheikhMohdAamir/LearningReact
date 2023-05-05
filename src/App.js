@@ -1,5 +1,6 @@
 import ExpenseItem from "./components/Expenses/ExpenseItem";
-import ExpenseForm from "./components/Expenses/ExpenseForm";
+import NewExpense from "./components/Expenses/NewExpense";
+import React, { useState } from "react";
 
 
 const App=()=> {
@@ -33,14 +34,20 @@ const App=()=> {
       location: "Location4"
     },
   ];
+
+    const [oldExpense, newExpenseAdded]= useState(expenses);
+
+    const newExpenseToAppHandler= (expense)=>{
+        console.log(oldExpense);
+        newExpenseAdded(expense.push(expense))
+    }
+ 
   return (
     <div >
-      <h2>Let's get started!</h2>
+      <NewExpense addNewExpenseToApp={newExpenseToAppHandler}/>
       <div >{expenses.map((i)=>{
           return <ExpenseItem date={i.date} title={i.title} amount={i.amount} location={i.location}/>
       })}</div>
-      <ExpenseForm/>
- 
     </div>
   );
 }
