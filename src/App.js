@@ -1,9 +1,7 @@
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import NewExpense from "./components/Expenses/NewExpense";
-import React from "react";
+import React, { useState }  from "react";
 
-
-const App=()=> {
   const expenses = [
     {
       id: 'e1',
@@ -34,20 +32,23 @@ const App=()=> {
       location: "Location4"
     },
   ];
+const App=()=> {
 
+    const [oldExpenses, newExpenses]= useState(expenses);
 
-    const newExpenseToAppHandler= (expense)=>{
-        console.log(expense)
+    const newExpenseToAppHandler= expense=>{
+        newExpenses(prevExpense => {
+          return [expense, ...prevExpense]
+        })
     }
  
   return (
     <div >
       <NewExpense addNewExpenseToApp={newExpenseToAppHandler}/>
-      <div >{expenses.map((i)=>{
-          return <ExpenseItem date={i.date} title={i.title} amount={i.amount} location={i.location}/>
+      <div >{oldExpenses.map((i)=>{
+          return <ExpenseItem key={i.id} date={i.date} title={i.title} amount={i.amount} location={i.location}/>
       })}</div>
     </div>
   );
 }
 export default App;
-
