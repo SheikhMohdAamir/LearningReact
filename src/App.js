@@ -46,7 +46,7 @@ const App=()=> {
     <div >
       <NewExpense addNewExpenseToApp={newExpenseToAppHandler}/>
       <div >{oldExpenses.map((i)=>{
-          return <ExpenseItem key={i.id} date={i.date} title={i.title} amount={i.amount} location={i.location}/>
+          return <ExpenseItem key={i.id} date={i.date} title={i.title} amount={i.amount} location={i.location}/> //Added Key Attribute
       })}</div>
     </div>
   );
