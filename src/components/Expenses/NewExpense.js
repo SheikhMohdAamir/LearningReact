@@ -2,6 +2,7 @@ import React from "react";
 import ExpenseForm from "./ExpenseForm";
 import './NewExpense.css';
 
+//New Expense Component
 const NewExpense= (props)=>{
 
     const newExpenseHandler=(newExpenseData)=>{

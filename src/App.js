@@ -1,6 +1,6 @@
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import NewExpense from "./components/Expenses/NewExpense";
-import React, { useState } from "react";
+import React from "react";
 
 
 const App=()=> {
@@ -35,11 +35,9 @@ const App=()=> {
     },
   ];
 
-    const [oldExpense, newExpenseAdded]= useState(expenses);
 
     const newExpenseToAppHandler= (expense)=>{
-        console.log(oldExpense);
-        newExpenseAdded(expense.push(expense))
+        console.log(expense)
     }
  
   return (

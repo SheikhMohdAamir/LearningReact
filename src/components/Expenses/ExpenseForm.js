@@ -2,7 +2,7 @@ import React,{ useState } from "react";
 import "./ExpenseForm.css";
 function ExpenseForm(props){
 
-    // ENTERED TITILE AND THEN UPDATING TITLE - Add these to input tags, onChange={titleHandler}, onChange={amountHandler}, onChange={locationHandler}, onChange={dateHandler}.
+    // ENTERED TITILE AND THEN UPDATING TITLE - Add these to input tags, onChange={titleHandler}, onChange={amountHandler}, onChange={locationHandler}, onChange={dateHandler}..
     const [enteredTitle, updatedTitle] = useState("");
     const [enteredAmount, updatedAmount] = useState("");
     const [enteredLocation, updatedLocation] = useState("");
