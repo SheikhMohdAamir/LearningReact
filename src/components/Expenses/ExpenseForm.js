@@ -42,34 +42,55 @@ function ExpenseForm(props){
         
         }
 
-    return(
+        const displayForm=()=>{
+            setform(
+            <>
+                <form onSubmit={submitHandler} > 
+                    <div className='new-expense__controls'>
+                    <div className='new-expense__control'>
+                        <label htmlFor="expensetitle" >Expense Title</label>
+                        <input type="text" name="expensetitle" id="expensetitle" className="input" placeholder="Enter the title..." value={enteredTitle} onChange={titleHandler} autoComplete="off"/>
+                    </div>
+                    <div className='new-expense__control'>
+                        <label htmlFor="expenseamount">Expense Amount</label>
+                        <input type="number" name="expenseamount" id="expenseamount" className="input" placeholder="Enter the amount..." value={enteredAmount} onChange={amountHandler} autoComplete="off"/>
+                    </div>
+                    <div className='new-expense__control'>
+                        <label htmlFor="expenselocation">Location</label>
+                        <input type="text" name="expenselocation" id="expenselocation" class="input" placeholder="Enter the location..." value={enteredLocation} onChange={locationHandler} autoComplete="off"/>
+                    </div>
+                    <div className='new-expense__control'>
+                        <label htmlFor="date">Date</label>
+                        <input type="date" name="date" id="date" className="input" value={enteredDate} onChange={dateHandler} autoComplete="off"/>
+                    </div>
+                    </div>
+                    <div className="new-expense__actions">
+                        <button onClick={displayButton}>Cancel</button>
+                    </div>
+                    <div className="new-expense__actions">
+                        <input type="submit" value="Add Expense" className="button3"/>
+                    </div>
+                </form>
+            </>)
 
-        <form onSubmit={submitHandler}> 
-        <div className='new-expense__controls'>
-        <div className='new-expense__control'>
-            <label for="expensetitle" >Expense Title</label>
-            <input type="text" name="expensetitle" id="expensetitle" className="input" placeholder="Enter the title..." value={enteredTitle} onChange={titleHandler} autoComplete="off"/>
-        </div>
-        <div className='new-expense__control'>
-            <label for="expenseamount">Expense Amount</label>
-            <input type="number" name="expenseamount" id="expenseamount" className="input" placeholder="Enter the amount..." value={enteredAmount} onChange={amountHandler} autoComplete="off"/>
-        </div>
-        <div className='new-expense__control'>
-            <label for="expenselocation">Location</label>
-            <input type="text" name="expenselocation" id="expenselocation" class="input" placeholder="Enter the location..." value={enteredLocation} onChange={locationHandler} autoComplete="off"/>
-        </div>
-        <div className='new-expense__control'>
-            <label for="date">Date</label>
-            <input type="date" name="date" id="date" className="input" value={enteredDate} onChange={dateHandler} autoComplete="off"/>
-        </div>
-        </div>
-        <div className="new-expense__actions">
-            <input type="submit" value="Add Expense" className="button3"/>
-        </div>
-        </form>
+    }
+
+        const[form, setform]= useState(()=>{
+            return(<button onClick={displayForm}>Add New Expense</button>)
+        })
 
 
-    )
+        const buttonDisplay= form;
+        const displayButton=()=>{
+            setform(()=>{
+                return(buttonDisplay)
+            })
+        }
+    
+
+    return(form)
 }
 
 export default ExpenseForm;
+
+                
